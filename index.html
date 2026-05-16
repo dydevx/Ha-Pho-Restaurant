@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Hà Phở | Asiatische Küche & Sushi Bar</title>
+  <meta
+    name="description"
+    content="Restaurant Hà Phở in Berlin-Kreuzberg: vietnamesische Spezialitäten, Sushi Bar, Drinks und vegetarische Gerichte."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #07395f;
+      --ink-deep: #05263f;
+      --paper: #f4ead6;
+      --paper-soft: #fbf6ec;
+      --copper: #9f2f1f;
+      --sage: #7e9274;
+      --line: rgba(7, 57, 95, 0.18);
+      --shadow: 0 24px 70px rgba(6, 25, 41, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink-deep);
+      background: var(--paper-soft);
+      font-family: "Manrope", Arial, sans-serif;
+      line-height: 1.5;
+      letter-spacing: 0;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 2;
+      padding: 24px 0;
+      color: #fff8eb;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 2px;
+      text-transform: uppercase;
+    }
+
+    .brand strong {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: 0.06em;
+    }
+
+    .brand span {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      opacity: 0.9;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 82vh;
+      color: #fff8eb;
+      background:
+        linear-gradient(90deg, rgba(5, 22, 36, 0.9) 0%, rgba(5, 22, 36, 0.76) 36%, rgba(5, 22, 36, 0.3) 72%, rgba(5, 22, 36, 0.12) 100%),
+        url("assets/hero.webp") center / cover no-repeat;
+    }
+
+    .hero::after {
+      position: absolute;
+      inset: auto 0 0;
+      height: 120px;
+      background: linear-gradient(180deg, rgba(251, 246, 236, 0), var(--paper-soft));
+      content: "";
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      min-height: 82vh;
+      align-items: center;
+      padding: 132px 0 110px;
+    }
+
+    .hero-copy {
+      width: 100%;
+      max-width: 560px;
+    }
+
+    .eyebrow,
+    .section-kicker {
+      margin: 0 0 12px;
+      color: rgba(255, 248, 235, 0.84);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      font-size: 72px;
+    }
+
+    .hero-copy p {
+      max-width: 480px;
+      margin: 24px 0 0;
+      color: rgba(255, 248, 235, 0.9);
+      font-size: 18px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      padding: 0 18px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: 160ms ease;
+    }
+
+    .button-primary {
+      color: #fff8eb;
+      background: var(--copper);
+    }
+
+    .button-primary:hover {
+      background: #8d281a;
+    }
+
+    .button-secondary {
+      border-color: rgba(255, 248, 235, 0.45);
+      color: #fff8eb;
+      background: rgba(255, 248, 235, 0.06);
+      backdrop-filter: blur(8px);
+    }
+
+    .button-secondary:hover {
+      background: rgba(255, 248, 235, 0.14);
+    }
+
+    .intro {
+      position: relative;
+      z-index: 1;
+      margin-top: -36px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: stretch;
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 252, 246, 0.94);
+      box-shadow: var(--shadow);
+    }
+
+    .intro-copy h2,
+    .section-head h2,
+    .contact-card h2 {
+      color: var(--ink);
+      font-size: 46px;
+    }
+
+    .intro-copy p {
+      max-width: 650px;
+      margin: 18px 0 0;
+      color: rgba(5, 38, 63, 0.78);
+      font-size: 16px;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .fact {
+      border-left: 1px solid var(--line);
+      padding-left: 16px;
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--ink);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .fact span {
+      color: rgba(5, 38, 63, 0.72);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    section {
+      padding: 92px 0;
+    }
+
+    .section-kicker {
+      color: var(--copper);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .section-head p {
+      max-width: 440px;
+      margin: 0;
+      color: rgba(5, 38, 63, 0.72);
+    }
+
+    .signature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .dish-card {
+      min-height: 220px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      background: #fffaf1;
+    }
+
+    .dish-card small {
+      color: var(--copper);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .dish-card h3 {
+      margin-top: 16px;
+      color: var(--ink);
+      font-size: 32px;
+    }
+
+    .dish-card p {
+      margin: 14px 0 18px;
+      color: rgba(5, 38, 63, 0.75);
+      font-size: 14px;
+    }
+
+    .price {
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .showcase {
+      background: var(--paper);
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .showcase-media {
+      display: grid;
+      min-height: 470px;
+      grid-template-columns: minmax(0, 1.15fr) minmax(170px, 0.85fr);
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .photo-tile {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 24px 34px rgba(17, 19, 18, 0.16);
+    }
+
+    .photo-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-tile-main {
+      grid-row: 1 / span 2;
+    }
+
+    .showcase-copy p {
+      margin: 18px 0 0;
+      color: rgba(5, 38, 63, 0.76);
+    }
+
+    .menu-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .gallery {
+      padding-top: 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      grid-template-rows: repeat(2, 250px);
+      gap: 16px;
+    }
+
+    .gallery-item {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #eadcc2;
+    }
+
+    .gallery-item:first-child {
+      grid-row: 1 / span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .menu-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+    }
+
+    .menu-row strong {
+      color: var(--ink);
+      font-size: 16px;
+    }
+
+    .menu-row span {
+      color: rgba(5, 38, 63, 0.72);
+      font-size: 14px;
+    }
+
+    .menu-row b {
+      color: var(--copper);
+      font-size: 15px;
+      white-space: nowrap;
+    }
+
+    .menu-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .menu-column {
+      border-top: 2px solid var(--ink);
+      padding-top: 18px;
+    }
+
+    .menu-column h3 {
+      color: var(--ink);
+      font-size: 30px;
+    }
+
+    .menu-column .menu-list {
+      margin-top: 20px;
+    }
+
+    .menu-book-wrap {
+      display: grid;
+      gap: 24px;
+      margin-top: 50px;
+      border-top: 1px solid var(--line);
+      padding-top: 34px;
+    }
+
+    .menu-book-copy {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .menu-book-copy h3 {
+      color: var(--ink);
+      font-size: 36px;
+    }
+
+    .menu-book-copy p {
+      max-width: 460px;
+      margin: 0;
+      color: rgba(5, 38, 63, 0.76);
+    }
+
+    .menu-book-panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: clamp(18px, 3vw, 30px);
+      background:
+        radial-gradient(circle at top left, rgba(159, 47, 31, 0.08), transparent 30%),
+        linear-gradient(135deg, rgba(255, 250, 241, 0.98), rgba(244, 234, 214, 0.92));
+      box-shadow: 0 18px 44px rgba(6, 25, 41, 0.11);
+    }
+
+    .book-stage {
+      position: relative;
+      width: min(100%, 900px);
+      margin: 0 auto;
+      perspective: 2200px;
+      touch-action: pan-y;
+      user-select: none;
+    }
+
+    .book-stage:focus-visible {
+      outline: 3px solid rgba(159, 47, 31, 0.5);
+      outline-offset: 8px;
+    }
+
+    .book {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      aspect-ratio: 1.414 / 1;
+      filter: drop-shadow(0 24px 22px rgba(22, 17, 11, 0.16));
+    }
+
+    .book::before {
+      position: absolute;
+      top: 1.5%;
+      bottom: 1.5%;
+      left: 50%;
+      z-index: 3;
+      width: 18px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, rgba(40, 24, 12, 0.18), rgba(255, 255, 255, 0.12), rgba(40, 24, 12, 0.18));
+      content: "";
+      pointer-events: none;
+    }
+
+    .book-page,
+    .page-turn-face {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      min-height: 0;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), transparent 40%),
+        #f8efd9;
+    }
+
+    .book-page-left {
+      border-radius: 8px 3px 3px 8px;
+      box-shadow: inset -18px 0 24px rgba(31, 19, 11, 0.08);
+    }
+
+    .book-page-right {
+      border-radius: 3px 8px 8px 3px;
+      box-shadow: inset 18px 0 24px rgba(31, 19, 11, 0.08);
+    }
+
+    .book-page img,
+    .page-turn-face img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .book-page.is-blank::after,
+    .page-turn-face.is-blank::after {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)),
+        repeating-linear-gradient(
+          180deg,
+          rgba(7, 57, 95, 0.03) 0,
+          rgba(7, 57, 95, 0.03) 1px,
+          transparent 1px,
+          transparent 34px
+        );
+      content: "";
+    }
+
+    .page-turn {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 5;
+      display: none;
+      width: 50%;
+      transform-style: preserve-3d;
+      pointer-events: none;
+    }
+
+    .page-turn.is-visible {
+      display: block;
+    }
+
+    .page-turn.is-next {
+      right: 0;
+      transform-origin: left center;
+      animation: flip-next 720ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    }
+
+    .page-turn.is-prev {
+      left: 0;
+      transform-origin: right center;
+      animation: flip-prev 720ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    }
+
+    .page-turn-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+    }
+
+    .page-turn-front {
+      box-shadow: inset -18px 0 24px rgba(31, 19, 11, 0.12);
+    }
+
+    .page-turn-back {
+      transform: rotateY(180deg);
+      box-shadow: inset 18px 0 24px rgba(31, 19, 11, 0.12);
+    }
+
+    @keyframes flip-next {
+      from {
+        transform: rotateY(0);
+      }
+
+      to {
+        transform: rotateY(-180deg);
+      }
+    }
+
+    @keyframes flip-prev {
+      from {
+        transform: rotateY(0);
+      }
+
+      to {
+        transform: rotateY(180deg);
+      }
+    }
+
+    .book-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .book-button {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      padding: 0 18px;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: rgba(255, 250, 241, 0.92);
+      cursor: pointer;
+      transition: 160ms ease;
+    }
+
+    .book-button:hover:not(:disabled) {
+      border-color: rgba(7, 57, 95, 0.32);
+      background: #fffaf1;
+    }
+
+    .book-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.45;
+    }
+
+    .book-indicator {
+      min-width: 164px;
+      color: rgba(5, 38, 63, 0.72);
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .book-hint {
+      margin: 14px 0 0;
+      color: rgba(5, 38, 63, 0.62);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .sushi-band {
+      color: #fff8eb;
+      background: var(--ink);
+    }
+
+    .sushi-band .section-kicker {
+      color: #f0baa9;
+    }
+
+    .sushi-band .section-head h2,
+    .sushi-band .section-head p,
+    .sushi-band .menu-row strong,
+    .sushi-band .menu-row span {
+      color: #fff8eb;
+    }
+
+    .sushi-band .menu-row {
+      border-color: rgba(255, 248, 235, 0.18);
+    }
+
+    .sushi-grid {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .sushi-visual {
+      display: grid;
+      place-items: center;
+      min-height: 290px;
+    }
+
+    .sushi-visual img {
+      max-height: 270px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.2));
+    }
+
+    .reviews {
+      background: var(--paper);
+    }
+
+    .review-summary {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .review-summary p {
+      max-width: 470px;
+      margin: 0;
+      color: rgba(5, 38, 63, 0.72);
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .review-card {
+      display: grid;
+      gap: 18px;
+      min-height: 220px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      background: rgba(255, 250, 241, 0.92);
+    }
+
+    .review-card small {
+      color: var(--copper);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .review-card p {
+      margin: 0;
+      color: rgba(5, 38, 63, 0.8);
+      font-size: 17px;
+    }
+
+    .review-card strong {
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: minmax(360px, 0.82fr) minmax(0, 1.18fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .visit-card,
+    .map-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffaf1;
+    }
+
+    .visit-card {
+      padding: 30px;
+    }
+
+    .visit-card h2 {
+      margin-top: 10px;
+    }
+
+    .visit-list {
+      display: grid;
+      margin-top: 26px;
+    }
+
+    .visit-row {
+      display: grid;
+      gap: 8px;
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
+    }
+
+    .visit-row:first-child {
+      padding-top: 0;
+    }
+
+    .visit-row strong {
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .visit-row span,
+    .visit-row a {
+      color: rgba(5, 38, 63, 0.76);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .contact-actions .button-secondary {
+      border-color: var(--line);
+      color: var(--ink);
+      background: transparent;
+    }
+
+    .contact-actions .button-secondary:hover {
+      background: rgba(7, 57, 95, 0.06);
+    }
+
+    .map-card {
+      overflow: hidden;
+      min-height: 410px;
+      background: #eadcc2;
+    }
+
+    .map-card iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 410px;
+      border: 0;
+    }
+
+    footer {
+      padding: 24px 0 28px;
+      color: rgba(255, 248, 235, 0.78);
+      background: var(--ink-deep);
+      font-size: 13px;
+    }
+
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .footer-row strong {
+      color: #fff8eb;
+      font-weight: 600;
+    }
+
+    @media (max-width: 980px) {
+      .shell {
+        width: calc(100% - 32px);
+        max-width: 1180px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero,
+      .hero-inner {
+        min-height: 760px;
+      }
+
+      h1 {
+        font-size: 58px;
+      }
+
+      .intro-grid,
+      .showcase-grid,
+      .sushi-grid,
+      .review-grid,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .signature-grid,
+      .menu-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-book-copy {
+        display: grid;
+      }
+
+      .review-summary {
+        display: grid;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 220px);
+      }
+
+      .gallery-item:first-child {
+        grid-row: auto;
+      }
+
+      .showcase-media {
+        min-height: 390px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site-header {
+        padding-top: 18px;
+      }
+
+      .brand strong {
+        font-size: 29px;
+      }
+
+      .hero,
+      .hero-inner {
+        min-height: 700px;
+      }
+
+      .hero {
+        background:
+          linear-gradient(90deg, rgba(5, 22, 36, 0.92), rgba(5, 22, 36, 0.74)),
+          url("assets/hero.webp") 62% center / cover no-repeat;
+      }
+
+      .hero-inner {
+        padding-top: 108px;
+      }
+
+      h1 {
+        font-size: 46px;
+      }
+
+      .hero-copy p {
+        max-width: 100%;
+        font-size: 16px;
+      }
+
+      .intro {
+        margin-top: -24px;
+      }
+
+      .intro-grid {
+        gap: 24px;
+        padding: 22px;
+      }
+
+      .facts {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .section-head {
+        display: grid;
+      }
+
+      .intro-copy h2,
+      .section-head h2,
+      .visit-card h2 {
+        font-size: 38px;
+      }
+
+      .showcase-media {
+        min-height: 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 220px);
+      }
+
+      .photo-tile-main {
+        grid-row: auto;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 220px);
+      }
+
+      .menu-row {
+        display: grid;
+        gap: 6px;
+      }
+
+      .book {
+        grid-template-columns: 1fr;
+        aspect-ratio: 0.707 / 1;
+      }
+
+      .book::before,
+      .book-page-left {
+        display: none;
+      }
+
+      .book-page-right {
+        border-radius: 8px;
+      }
+
+      .page-turn {
+        width: 100%;
+      }
+
+      .book-indicator {
+        order: -1;
+        width: 100%;
+      }
+
+      .map-card,
+      .map-card iframe {
+        min-height: 320px;
+      }
+
+      .footer-row {
+        display: grid;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .page-turn.is-next,
+      .page-turn.is-prev {
+        animation-duration: 1ms;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand" href="#top" aria-label="Restaurant Hà Phở">
+        <strong>Hà Phở</strong>
+        <span>Restaurant · Sushi Bar</span>
+      </a>
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="#spezialitaeten">Spezialitäten</a>
+        <a href="#speisekarte">Speisekarte</a>
+        <a href="#sushi">Sushi Bar</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Asiatische Küche · Sushi Bar</p>
+          <h1>Restaurant Hà Phở</h1>
+          <p>
+            Vietnamesische Klassiker, hausgemachte Spezialitäten und Sushi in
+            eleganter, ruhiger Atmosphäre im Herzen von Berlin-Kreuzberg.
+          </p>
+          <div class="actions">
+            <a class="button button-primary" href="#menubuch">
+              Menübuch öffnen
+            </a>
+            <a class="button button-secondary" href="tel:+491776356186">Jetzt anrufen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="intro">
+      <div class="shell intro-grid">
+        <div class="intro-copy">
+          <p class="section-kicker">Willkommen</p>
+          <h2>Vietnam trifft europäische Eleganz.</h2>
+          <p>
+            Von aromatischer Phở über frische Sommerrollen bis zu Tiger Rolls:
+            Hà Phở verbindet lebendige vietnamesische Küche mit einer
+            stilvollen, zeitlosen Präsentation.
+          </p>
+        </div>
+        <div class="facts" aria-label="Restaurant-Highlights">
+          <div class="fact">
+            <strong>18</strong>
+            <span>Menüseiten</span>
+          </div>
+          <div class="fact">
+            <strong>6+</strong>
+            <span>Kategorien</span>
+          </div>
+          <div class="fact">
+            <strong>Vegane</strong>
+            <span>Optionen</span>
+          </div>
+          <div class="fact">
+            <strong>Sushi</strong>
+            <span>Bar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="spezialitaeten">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Spezialität des Hauses</p>
+            <h2>Signatures</h2>
+          </div>
+          <p>
+            Eine kuratierte Auswahl aus der aktuellen Karte, ideal für den
+            ersten Eindruck und die schnelle Entscheidung am Tisch.
+          </p>
+        </div>
+
+        <div class="signature-grid">
+          <article class="dish-card">
+            <small>Suppen</small>
+            <h3>Phở Bò</h3>
+            <p>Rindfleisch, Reisbandnudeln, Kräuter und Sojasprossen.</p>
+            <div class="price">13,5 €</div>
+          </article>
+          <article class="dish-card">
+            <small>Ha Pho Specials</small>
+            <h3>Bò Luc Lac</h3>
+            <p>Würzig marinierte Rindfleischwürfel mit Jasminreis und Salat.</p>
+            <div class="price">16,5 €</div>
+          </article>
+          <article class="dish-card">
+            <small>Sushi Bar</small>
+            <h3>Ebi Sake</h3>
+            <p>Tiger Roll mit Ebi Tempura, Avocado, Mango und Lachs.</p>
+            <div class="price">15,9 €</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="showcase">
+      <div class="shell showcase-grid">
+        <div class="showcase-media" aria-hidden="true">
+          <figure class="photo-tile photo-tile-main">
+            <img src="assets/feature-starters.webp" alt="">
+          </figure>
+          <figure class="photo-tile">
+            <img src="assets/feature-drinks.webp" alt="">
+          </figure>
+          <figure class="photo-tile">
+            <img src="assets/feature-sushi.webp" alt="">
+          </figure>
+        </div>
+        <div class="showcase-copy">
+          <p class="section-kicker">Aus der Küche</p>
+          <h2>Frisch, duftend, fein ausbalanciert.</h2>
+          <p>
+            Die Karte reicht von leichten Vorspeisen bis zu reichhaltigen Bowls,
+            Currys, vegetarischen Imitationen und hausgemachten Drinks.
+          </p>
+          <div class="menu-list">
+            <div class="menu-row">
+              <div>
+                <strong>Gỏi Cuốn Phở</strong>
+                <span>Sommerrollen mit Phở-Nudeln, Kräutern und Hoi-Sin-Soße</span>
+              </div>
+              <b>7 €</b>
+            </div>
+            <div class="menu-row">
+              <div>
+                <strong>Bún Bò Nam Bộ Sả ớt</strong>
+                <span>Rindfleisch mit Zitronengras, Chili und Reisnudeln</span>
+              </div>
+              <b>14,5 €</b>
+            </div>
+            <div class="menu-row">
+              <div>
+                <strong>Shaolin Seitan</strong>
+                <span>Seitan, Tofu, Tamarinde und Zitronengras</span>
+              </div>
+              <b>13,9 €</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" aria-label="Impressionen">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Impressionen</p>
+            <h2>Aus Küche und Sushi Bar</h2>
+          </div>
+          <p>
+            Eine kleine Auswahl echter Momente aus der Bildsammlung des Hauses,
+            ruhiger kuratiert für die Website.
+          </p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img src="assets/gallery-sushi-platter.webp" alt="Große Sushi-Auswahl">
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/gallery-handroll.webp" alt="Zubereitung eines Handrolls">
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/gallery-prep.webp" alt="Sushi wird frisch geschnitten">
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/gallery-starter-board.webp" alt="Gemischte Vorspeisenplatte">
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/gallery-sushi-grid.webp" alt="Sushi-Sortiment">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="speisekarte">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Speisekarte</p>
+            <h2>Lieblingsgerichte</h2>
+          </div>
+          <p>
+            Blättern Sie durch die vollständige Karte wie in einem echten
+            Menübuch.
+          </p>
+        </div>
+
+        <div class="menu-columns">
+          <article class="menu-column">
+            <h3>Vorspeisen</h3>
+            <div class="menu-list">
+              <div class="menu-row">
+                <div>
+                  <strong>Súp Rau Chay</strong>
+                  <span>Gemüsesuppe mit Tofu</span>
+                </div>
+                <b>5,5 €</b>
+              </div>
+              <div class="menu-row">
+                <div>
+                  <strong>Nem Chiên Sài Gòn</strong>
+                  <span>Klassische Frühlingsrollen</span>
+                </div>
+                <b>6 €</b>
+              </div>
+              <div class="menu-row">
+                <div>
+                  <strong>Ha Pho Teller</strong>
+                  <span>Gemischte Vorspeisenplatte</span>
+                </div>
+                <b>18,9 €</b>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-column">
+            <h3>Hauptgerichte</h3>
+            <div class="menu-list">
+              <div class="menu-row">
+                <div>
+                  <strong>Cà Ri đỏ</strong>
+                  <span>Rotes Curry mit Reis</span>
+                </div>
+                <b>ab 12,9 €</b>
+              </div>
+              <div class="menu-row">
+                <div>
+                  <strong>Mango Kokosnuss</strong>
+                  <span>Cremige Mango-Kokos-Soße</span>
+                </div>
+                <b>ab 12,9 €</b>
+              </div>
+              <div class="menu-row">
+                <div>
+                  <strong>Bún Chả Nướng</strong>
+                  <span>Gegrillter Schweinebauch</span>
+                </div>
+                <b>13,5 €</b>
+              </div>
+            </div>
+          </article>
+
+          <article class="menu-column">
+            <h3>Drinks</h3>
+            <div class="menu-list">
+              <div class="menu-row">
+                <div>
+                  <strong>Ha Pho Cocktail</strong>
+                  <span>Wodka, Kokosmilch, Limette, Ananas</span>
+                </div>
+                <b>6,5 €</b>
+              </div>
+              <div class="menu-row">
+                <div>
+                  <strong>Mango Lassi</strong>
+                  <span>Mango und Kokosmilch</span>
+                </div>
+                <b>5,9 €</b>
+              </div>
+              <div class="menu-row">
+                <div>
+                  <strong>Cà Phê Sữa đá</strong>
+                  <span>Vietnamesischer Eiskaffee</span>
+                </div>
+                <b>5,9 €</b>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="menu-book-wrap" id="menubuch" data-menu-book>
+          <div class="menu-book-copy">
+            <div>
+              <p class="section-kicker">Digitale Karte</p>
+              <h3>Menübuch zum Durchblättern</h3>
+            </div>
+            <p>
+              Alle 18 Seiten der Karte, ruhig präsentiert für Desktop und
+              Smartphone.
+            </p>
+          </div>
+
+          <div class="menu-book-panel">
+            <div
+              class="book-stage"
+              data-book-stage
+              tabindex="0"
+              aria-label="Digitale Speisekarte"
+            >
+              <div class="book">
+                <figure class="book-page book-page-left is-blank" data-left-page>
+                  <img alt="">
+                </figure>
+                <figure class="book-page book-page-right" data-right-page>
+                  <img src="assets/menu-pages/page-01.webp" alt="Speisekarte Seite 1">
+                </figure>
+
+                <div class="page-turn" data-page-turn aria-hidden="true">
+                  <div class="page-turn-face page-turn-front" data-turn-front>
+                    <img alt="">
+                  </div>
+                  <div class="page-turn-face page-turn-back" data-turn-back>
+                    <img alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="book-controls">
+              <button class="book-button" type="button" data-prev-page>
+                Zurück
+              </button>
+              <span class="book-indicator" data-page-indicator>Seite 1 von 18</span>
+              <button class="book-button" type="button" data-next-page>
+                Weiter
+              </button>
+            </div>
+
+            <p class="book-hint">
+              Am Computer mit den Pfeiltasten blättern, am Handy einfach wischen.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sushi" class="sushi-band">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Ha Pho's Sushi Bar</p>
+            <h2>Sushi</h2>
+          </div>
+          <p>
+            Nigiri, Maki, Inside Out, Tiger Rolls und Sashimi, ergänzt um Menüs
+            für zwei oder vier Personen.
+          </p>
+        </div>
+
+        <div class="sushi-grid">
+          <div class="sushi-visual">
+            <img src="assets/sushi-rolls.png" alt="Sushi-Auswahl">
+          </div>
+          <div class="menu-list">
+            <div class="menu-row">
+              <div>
+                <strong>Sake Nigiri</strong>
+                <span>Lachs, 2 Stück</span>
+              </div>
+              <b>5,5 €</b>
+            </div>
+            <div class="menu-row">
+              <div>
+                <strong>Sake Avocado Inside Out</strong>
+                <span>Lachs, Avocado, Flugfischrogen</span>
+              </div>
+              <b>10,5 €</b>
+            </div>
+            <div class="menu-row">
+              <div>
+                <strong>Ebi Sake Tiger Roll</strong>
+                <span>Ebi Tempura, Mango, Frischkäse, Lachs</span>
+              </div>
+              <b>15,9 €</b>
+            </div>
+            <div class="menu-row">
+              <div>
+                <strong>Menü 1</strong>
+                <span>Für 2 Personen</span>
+              </div>
+              <b>49,9 €</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" aria-label="Gästebewertungen">
+      <div class="shell">
+        <div class="review-summary">
+          <div>
+            <p class="section-kicker">Gästestimmen</p>
+            <h2>Was unsere Gäste schätzen</h2>
+          </div>
+          <p>
+            Eindrücke aus öffentlichen Gästebewertungen, auf das Wesentliche
+            verdichtet.
+          </p>
+        </div>
+
+        <div class="review-grid">
+          <article class="review-card">
+            <small>Küche</small>
+            <p>
+              Sehr leckeres Essen, freundlicher Service und eine starke Auswahl
+              auch für vegane Gäste.
+            </p>
+            <strong>Öffentliche Gästebewertung</strong>
+          </article>
+          <article class="review-card">
+            <small>Aromen</small>
+            <p>
+              Feine, ausgewogene Aromen, originale Zutaten und schön
+              angerichtete Gerichte.
+            </p>
+            <strong>Öffentliche Gästebewertung</strong>
+          </article>
+          <article class="review-card">
+            <small>Atmosphäre</small>
+            <p>
+              Ein gemütliches Kiez-Restaurant mit großer Auswahl und herzlich
+              aufmerksamem Service.
+            </p>
+            <strong>Öffentliche Gästebewertung</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="shell contact-wrap">
+        <article class="visit-card">
+          <p class="section-kicker">Besuch</p>
+          <h2>Wir freuen uns auf Sie.</h2>
+          <div class="visit-list">
+            <div class="visit-row">
+              <strong>Adresse</strong>
+              <span>Dudenstraße 15<br>10965 Berlin</span>
+            </div>
+            <div class="visit-row">
+              <strong>Telefon</strong>
+              <a href="tel:+491776356186">+49 177 6356186</a>
+            </div>
+            <div class="visit-row">
+              <strong>Öffnungszeiten</strong>
+              <span>Montag - Sonntag: 11:30 - 22:00 Uhr</span>
+              <span>Küche, Sushi & Drinks durchgehend</span>
+            </div>
+          </div>
+          <div class="contact-actions">
+            <a class="button button-primary" href="tel:+491776356186">Anrufen</a>
+            <a class="button button-secondary" href="https://maps.app.goo.gl/zqNtECPHtZMHn12d9" target="_blank" rel="noreferrer">Route öffnen</a>
+            <a class="button button-secondary" href="https://www.instagram.com/hapho_restaurant/" target="_blank" rel="noreferrer">Instagram</a>
+          </div>
+        </article>
+
+        <div class="map-card">
+          <iframe
+            title="Karte zu Restaurant Hà Phở"
+            src="https://www.google.com/maps?q=Restaurant%20H%C3%A0%20Ph%E1%BB%9F%20Dudenstra%C3%9Fe%2015%2C%2010965%20Berlin&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-row">
+      <strong>Restaurant Hà Phở · Asiatische Küche · Sushi Bar</strong>
+      <span>Copyright © 2026 Hoangcaster</span>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const menuBook = document.querySelector("[data-menu-book]");
+
+      if (!menuBook) {
+        return;
+      }
+
+      const pageSources = Array.from(
+        { length: 18 },
+        (_, index) => `assets/menu-pages/page-${String(index + 1).padStart(2, "0")}.webp`
+      );
+      const spreads = [-1, 1, 3, 5, 7, 9, 11, 13, 15, 17];
+      const mobileQuery = window.matchMedia("(max-width: 640px)");
+      const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const stage = menuBook.querySelector("[data-book-stage]");
+      const leftPage = menuBook.querySelector("[data-left-page]");
+      const rightPage = menuBook.querySelector("[data-right-page]");
+      const pageTurn = menuBook.querySelector("[data-page-turn]");
+      const turnFront = menuBook.querySelector("[data-turn-front]");
+      const turnBack = menuBook.querySelector("[data-turn-back]");
+      const prevButton = menuBook.querySelector("[data-prev-page]");
+      const nextButton = menuBook.querySelector("[data-next-page]");
+      const indicator = menuBook.querySelector("[data-page-indicator]");
+
+      let mode = mobileQuery.matches ? "single" : "spread";
+      let spreadIndex = 0;
+      let pageIndex = 0;
+      let isAnimating = false;
+      let touchStartX = null;
+
+      function isValidPage(index) {
+        return index >= 0 && index < pageSources.length;
+      }
+
+      function setFace(face, index, withAlt = false) {
+        const image = face.querySelector("img");
+        const blank = !isValidPage(index);
+
+        face.classList.toggle("is-blank", blank);
+        image.hidden = blank;
+
+        if (blank) {
+          image.removeAttribute("src");
+          image.alt = "";
+          return;
+        }
+
+        image.src = pageSources[index];
+        image.alt = withAlt ? `Speisekarte Seite ${index + 1}` : "";
+      }
+
+      function currentSpread() {
+        const left = spreads[spreadIndex];
+        return { left, right: left + 1 };
+      }
+
+      function preload(indices) {
+        indices.filter(isValidPage).forEach((index) => {
+          const image = new Image();
+          image.src = pageSources[index];
+        });
+      }
+
+      function updateControls() {
+        if (mode === "single") {
+          prevButton.disabled = pageIndex === 0;
+          nextButton.disabled = pageIndex === pageSources.length - 1;
+          indicator.textContent = `Seite ${pageIndex + 1} von ${pageSources.length}`;
+          stage.setAttribute(
+            "aria-label",
+            `Digitale Speisekarte, Seite ${pageIndex + 1} von ${pageSources.length}`
+          );
+          preload([pageIndex - 1, pageIndex + 1]);
+          return;
+        }
+
+        const spread = currentSpread();
+        prevButton.disabled = spreadIndex === 0;
+        nextButton.disabled = spreadIndex === spreads.length - 1;
+
+        if (spread.left === -1) {
+          indicator.textContent = `Seite 1 von ${pageSources.length}`;
+        } else if (!isValidPage(spread.right)) {
+          indicator.textContent = `Seite ${spread.left + 1} von ${pageSources.length}`;
+        } else {
+          indicator.textContent = `Seiten ${spread.left + 1}-${spread.right + 1} von ${pageSources.length}`;
+        }
+
+        stage.setAttribute("aria-label", `Digitale Speisekarte, ${indicator.textContent}`);
+        preload([spread.left - 1, spread.right + 1, spread.right + 2]);
+      }
+
+      function renderSpread() {
+        const spread = currentSpread();
+        setFace(leftPage, spread.left, true);
+        setFace(rightPage, spread.right, true);
+        updateControls();
+      }
+
+      function renderSingle() {
+        setFace(leftPage, -1, true);
+        setFace(rightPage, pageIndex, true);
+        updateControls();
+      }
+
+      function render() {
+        if (mode === "single") {
+          renderSingle();
+          return;
+        }
+
+        renderSpread();
+      }
+
+      function animate(direction, finalize) {
+        if (reducedMotionQuery.matches) {
+          finalize();
+          render();
+          return;
+        }
+
+        isAnimating = true;
+        pageTurn.className = "page-turn";
+        void pageTurn.offsetWidth;
+        pageTurn.className = `page-turn is-visible is-${direction}`;
+
+        let completed = false;
+        const finishTurn = () => {
+          if (completed) {
+            return;
+          }
+
+          completed = true;
+          pageTurn.className = "page-turn";
+          finalize();
+          render();
+          isAnimating = false;
+        };
+
+        pageTurn.addEventListener("animationend", finishTurn, { once: true });
+        window.setTimeout(finishTurn, 780);
+      }
+
+      function nextPage() {
+        if (isAnimating) {
+          return;
+        }
+
+        if (mode === "single") {
+          if (pageIndex >= pageSources.length - 1) {
+            return;
+          }
+
+          const nextIndex = pageIndex + 1;
+          setFace(rightPage, nextIndex, true);
+          setFace(turnFront, pageIndex);
+          setFace(turnBack, nextIndex);
+          animate("next", () => {
+            pageIndex = nextIndex;
+          });
+          return;
+        }
+
+        if (spreadIndex >= spreads.length - 1) {
+          return;
+        }
+
+        const current = currentSpread();
+        const next = { left: spreads[spreadIndex + 1], right: spreads[spreadIndex + 1] + 1 };
+        setFace(rightPage, next.right, true);
+        setFace(turnFront, current.right);
+        setFace(turnBack, next.left);
+        animate("next", () => {
+          spreadIndex += 1;
+        });
+      }
+
+      function previousPage() {
+        if (isAnimating) {
+          return;
+        }
+
+        if (mode === "single") {
+          if (pageIndex <= 0) {
+            return;
+          }
+
+          const previousIndex = pageIndex - 1;
+          setFace(rightPage, previousIndex, true);
+          setFace(turnFront, pageIndex);
+          setFace(turnBack, previousIndex);
+          animate("prev", () => {
+            pageIndex = previousIndex;
+          });
+          return;
+        }
+
+        if (spreadIndex === 0) {
+          return;
+        }
+
+        const current = currentSpread();
+        const previous = { left: spreads[spreadIndex - 1], right: spreads[spreadIndex - 1] + 1 };
+        setFace(leftPage, previous.left, true);
+        setFace(turnFront, current.left);
+        setFace(turnBack, previous.right);
+        animate("prev", () => {
+          spreadIndex -= 1;
+        });
+      }
+
+      function syncMode() {
+        const nextMode = mobileQuery.matches ? "single" : "spread";
+
+        if (nextMode === mode) {
+          return;
+        }
+
+        if (nextMode === "single") {
+          const spread = currentSpread();
+          pageIndex = spread.left === -1 ? 0 : spread.left;
+        } else {
+          spreadIndex = pageIndex === 0 ? 0 : Math.ceil(pageIndex / 2);
+        }
+
+        mode = nextMode;
+        render();
+      }
+
+      prevButton.addEventListener("click", previousPage);
+      nextButton.addEventListener("click", nextPage);
+
+      stage.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          previousPage();
+        }
+
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          nextPage();
+        }
+      });
+
+      stage.addEventListener(
+        "touchstart",
+        (event) => {
+          touchStartX = event.changedTouches[0].clientX;
+        },
+        { passive: true }
+      );
+
+      stage.addEventListener(
+        "touchend",
+        (event) => {
+          if (touchStartX === null) {
+            return;
+          }
+
+          const distance = event.changedTouches[0].clientX - touchStartX;
+
+          if (Math.abs(distance) > 45) {
+            if (distance < 0) {
+              nextPage();
+            } else {
+              previousPage();
+            }
+          }
+
+          touchStartX = null;
+        },
+        { passive: true }
+      );
+
+      if (typeof mobileQuery.addEventListener === "function") {
+        mobileQuery.addEventListener("change", syncMode);
+      } else {
+        mobileQuery.addListener(syncMode);
+      }
+
+      render();
+    })();
+  </script>
+</body>
+</html>
