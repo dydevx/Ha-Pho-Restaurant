@@ -654,27 +654,52 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      grid-template-rows: repeat(2, 250px);
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-template-areas:
+        "platter platter platter assortment assortment assortment"
+        "handroll handroll prep prep starter starter";
       gap: 16px;
     }
 
     .gallery-item {
       margin: 0;
       overflow: hidden;
+      aspect-ratio: 3 / 2;
       border-radius: 8px;
       background: #050505;
       box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
     }
 
-    .gallery-item:first-child {
-      grid-row: 1 / span 2;
+    .gallery-item--platter {
+      grid-area: platter;
+    }
+
+    .gallery-item--assortment {
+      grid-area: assortment;
+    }
+
+    .gallery-item--handroll {
+      grid-area: handroll;
+    }
+
+    .gallery-item--prep {
+      grid-area: prep;
+    }
+
+    .gallery-item--starter {
+      grid-area: starter;
     }
 
     .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 180ms ease, filter 180ms ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.035);
+      filter: saturate(1.05);
     }
 
     .photo-ribbon {
@@ -789,6 +814,46 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
+    }
+
+    .video-gallery {
+      padding-top: 0;
+      color: #fff8eb;
+      background:
+        radial-gradient(circle at 86% 12%, rgba(202, 169, 134, 0.14), transparent 26%),
+        linear-gradient(180deg, #050505, #111111);
+    }
+
+    .video-gallery .section-head h2,
+    .video-gallery .section-head p {
+      color: #fff8eb;
+    }
+
+    .video-gallery .section-kicker {
+      color: var(--accent);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .video-card {
+      margin: 0;
+      overflow: hidden;
+      aspect-ratio: 9 / 16;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.045);
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28);
+    }
+
+    .video-card video {
+      width: 100%;
+      height: 100%;
+      background: #050505;
+      object-fit: cover;
     }
 
     @keyframes image-scroll {
@@ -1549,11 +1614,14 @@
 
       .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 220px);
+        grid-template-areas:
+          "platter assortment"
+          "handroll prep"
+          "starter starter";
       }
 
-      .gallery-item:first-child {
-        grid-row: auto;
+      .gallery-item--starter {
+        aspect-ratio: 16 / 9;
       }
 
       .photo-ribbon-head {
@@ -1562,6 +1630,10 @@
 
       .photo-mosaic {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .video-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .showcase-media {
@@ -1647,10 +1719,23 @@
 
       .gallery-grid {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(5, 220px);
+        grid-template-areas:
+          "platter"
+          "assortment"
+          "handroll"
+          "prep"
+          "starter";
+      }
+
+      .gallery-item--starter {
+        aspect-ratio: 3 / 2;
       }
 
       .photo-mosaic {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .video-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -1918,20 +2003,20 @@
           </p>
         </div>
         <div class="gallery-grid">
-          <figure class="gallery-item">
+          <figure class="gallery-item gallery-item--platter">
             <img src="assets/gallery-sushi-platter.webp" alt="Große Sushi-Auswahl">
           </figure>
-          <figure class="gallery-item">
+          <figure class="gallery-item gallery-item--assortment">
+            <img src="assets/gallery-sushi-grid.webp" alt="Sushi-Sortiment">
+          </figure>
+          <figure class="gallery-item gallery-item--handroll">
             <img src="assets/gallery-handroll.webp" alt="Zubereitung eines Handrolls">
           </figure>
-          <figure class="gallery-item">
+          <figure class="gallery-item gallery-item--prep">
             <img src="assets/gallery-prep.webp" alt="Sushi wird frisch geschnitten">
           </figure>
-          <figure class="gallery-item">
-            <img src="assets/gallery-starter-board.webp" alt="Gemischte Vorspeisenplatte">
-          </figure>
-          <figure class="gallery-item">
-            <img src="assets/gallery-sushi-grid.webp" alt="Sushi-Sortiment">
+          <figure class="gallery-item gallery-item--starter">
+            <img src="35.jpg" alt="Sushi-Auswahl">
           </figure>
         </div>
       </div>
@@ -1955,6 +2040,53 @@
 
       <div class="shell">
         <div class="photo-mosaic" data-photo-mosaic></div>
+      </div>
+    </section>
+
+    <section class="video-gallery" aria-label="Kurzvideos aus dem Restaurant">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Kurzvideos</p>
+            <h2>Hà Phở in Bewegung</h2>
+          </div>
+          <p>
+            Kleine Eindrücke aus Restaurant, Alltag und Atmosphäre.
+          </p>
+        </div>
+
+        <div class="video-grid">
+          <figure class="video-card">
+            <video controls playsinline preload="metadata" poster="assets/video-posters/vd1.webp" aria-label="Kurzvideo 1 aus dem Restaurant">
+              <source src="vd1.mp4" type="video/mp4">
+            </video>
+          </figure>
+          <figure class="video-card">
+            <video controls playsinline preload="metadata" poster="assets/video-posters/vd2.webp" aria-label="Kurzvideo 2 aus dem Restaurant">
+              <source src="vd2.mp4" type="video/mp4">
+            </video>
+          </figure>
+          <figure class="video-card">
+            <video controls playsinline preload="metadata" poster="assets/video-posters/vd3.webp" aria-label="Kurzvideo 3 aus dem Restaurant">
+              <source src="vd3.mp4" type="video/mp4">
+            </video>
+          </figure>
+          <figure class="video-card">
+            <video controls playsinline preload="metadata" poster="assets/video-posters/vd4.webp" aria-label="Kurzvideo 4 aus dem Restaurant">
+              <source src="vd4.mp4" type="video/mp4">
+            </video>
+          </figure>
+          <figure class="video-card">
+            <video controls playsinline preload="metadata" poster="assets/video-posters/vd5.webp" aria-label="Kurzvideo 5 aus dem Restaurant">
+              <source src="vd5.mp4" type="video/mp4">
+            </video>
+          </figure>
+          <figure class="video-card">
+            <video controls playsinline preload="metadata" poster="assets/video-posters/vd6.webp" aria-label="Kurzvideo 6 aus dem Restaurant">
+              <source src="vd6.mp4" type="video/mp4">
+            </video>
+          </figure>
+        </div>
       </div>
     </section>
 
