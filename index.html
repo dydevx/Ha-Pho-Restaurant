@@ -635,6 +635,247 @@
       font-size: 13px;
     }
 
+    .order-section {
+      color: #fff8eb;
+      background:
+        radial-gradient(circle at 82% 14%, rgba(216, 227, 211, 0.12), transparent 24%),
+        linear-gradient(180deg, #121212, #070707);
+    }
+
+    .order-section .section-head h2,
+    .order-section .section-head p {
+      color: #fff8eb;
+    }
+
+    .order-section .section-head p {
+      color: rgba(255, 248, 235, 0.72);
+    }
+
+    .order-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(330px, 0.88fr);
+      gap: 22px;
+      align-items: start;
+      margin-top: 34px;
+    }
+
+    .order-menu {
+      display: grid;
+      gap: 12px;
+    }
+
+    .order-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 8px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.06);
+      transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+    }
+
+    .order-item.is-selected {
+      border-color: rgba(202, 169, 134, 0.55);
+      background: rgba(202, 169, 134, 0.14);
+    }
+
+    .order-item:has(input:checked) {
+      border-color: rgba(202, 169, 134, 0.55);
+      background: rgba(202, 169, 134, 0.14);
+    }
+
+    .order-item:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 248, 235, 0.24);
+    }
+
+    .order-choice {
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      cursor: pointer;
+    }
+
+    .order-choice input {
+      width: 20px;
+      height: 20px;
+      margin: 2px 0 0;
+      accent-color: var(--copper);
+    }
+
+    .order-item-copy {
+      display: grid;
+      gap: 4px;
+    }
+
+    .order-item-copy strong {
+      color: #fff8eb;
+      font-size: 16px;
+    }
+
+    .order-item-copy span {
+      color: rgba(255, 248, 235, 0.7);
+      font-size: 13px;
+    }
+
+    .order-item-meta {
+      display: grid;
+      justify-items: end;
+      gap: 10px;
+    }
+
+    .order-item-meta b {
+      color: var(--accent);
+      font-size: 15px;
+      white-space: nowrap;
+    }
+
+    .order-qty {
+      display: grid;
+      grid-template-columns: 32px 46px 32px;
+      gap: 5px;
+      align-items: center;
+    }
+
+    .order-qty button,
+    .order-qty input {
+      height: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 4px;
+      color: #fff8eb;
+      background: rgba(255, 255, 255, 0.08);
+      font: inherit;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .order-qty button {
+      cursor: pointer;
+      transition: 160ms ease;
+    }
+
+    .order-qty button:hover {
+      border-color: rgba(202, 169, 134, 0.56);
+      background: rgba(202, 169, 134, 0.2);
+    }
+
+    .order-qty input {
+      width: 46px;
+      appearance: textfield;
+    }
+
+    .order-qty input::-webkit-outer-spin-button,
+    .order-qty input::-webkit-inner-spin-button {
+      margin: 0;
+      appearance: none;
+    }
+
+    .order-details {
+      position: sticky;
+      top: 112px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      padding: 20px;
+      background: rgba(5, 5, 5, 0.76);
+      box-shadow: 0 22px 42px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(12px);
+    }
+
+    .order-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .order-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .order-field-wide {
+      grid-column: 1 / -1;
+    }
+
+    .order-field span {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .order-field input,
+    .order-field select,
+    .order-field textarea {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 6px;
+      padding: 12px;
+      color: #fff8eb;
+      background: rgba(255, 255, 255, 0.08);
+      font: inherit;
+    }
+
+    .order-field input::placeholder,
+    .order-field textarea::placeholder {
+      color: rgba(255, 248, 235, 0.48);
+    }
+
+    .order-field select option {
+      color: #111111;
+    }
+
+    .order-field textarea {
+      min-height: 104px;
+      resize: vertical;
+    }
+
+    .order-summary {
+      min-height: 104px;
+      margin: 16px 0;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .order-summary strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff8eb;
+      font-size: 14px;
+    }
+
+    .order-summary p,
+    .order-summary ul {
+      margin: 0;
+      color: rgba(255, 248, 235, 0.72);
+      font-size: 13px;
+    }
+
+    .order-summary ul {
+      display: grid;
+      gap: 6px;
+      padding-left: 18px;
+    }
+
+    .order-submit {
+      width: 100%;
+    }
+
+    .order-message {
+      margin: 12px 0 0;
+      color: rgba(255, 248, 235, 0.72);
+      font-size: 13px;
+    }
+
+    .order-message.is-error {
+      color: #ffd1c9;
+    }
+
     .menu-list {
       display: grid;
       gap: 16px;
@@ -970,6 +1211,11 @@
       max-width: 460px;
       margin: 0;
       color: rgba(5, 38, 63, 0.76);
+    }
+
+    .menu-book-actions {
+      display: flex;
+      flex-shrink: 0;
     }
 
     .menu-book-panel {
@@ -1582,6 +1828,7 @@
       .intro-grid,
       .showcase-grid,
       .sushi-grid,
+      .order-panel,
       .contact-wrap {
         grid-template-columns: 1fr;
       }
@@ -1638,6 +1885,10 @@
 
       .showcase-media {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .order-details {
+        position: static;
       }
     }
 
@@ -1714,6 +1965,18 @@
       }
 
       .takeaway-options {
+        grid-template-columns: 1fr;
+      }
+
+      .order-item {
+        grid-template-columns: 1fr;
+      }
+
+      .order-item-meta {
+        justify-items: start;
+      }
+
+      .order-details-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1803,6 +2066,7 @@
       <nav class="nav-links" aria-label="Hauptnavigation">
         <a href="#spezialitaeten">Spezialitäten</a>
         <a href="#speisekarte">Speisekarte</a>
+        <a href="#bestellen">Bestellen</a>
         <a href="#sushi">Sushi Bar</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
@@ -1820,7 +2084,10 @@
             eleganter, ruhiger Atmosphäre im Herzen von Berlin-Kreuzberg.
           </p>
           <div class="actions">
-            <a class="button button-primary" href="#menubuch">
+            <a class="button button-primary" href="#bestellen">
+              Jetzt bestellen
+            </a>
+            <a class="button button-secondary" href="#menubuch">
               Menübuch öffnen
             </a>
             <a class="button button-secondary" href="tel:+491776356186">Jetzt anrufen</a>
@@ -1987,6 +2254,315 @@
             </p>
           </fieldset>
         </div>
+      </div>
+    </section>
+
+    <section id="bestellen" class="order-section">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Bestellung</p>
+            <h2>Gerichte auswählen</h2>
+          </div>
+          <p>
+            Stellen Sie Ihre Auswahl zusammen und senden Sie die Bestellung direkt per WhatsApp.
+          </p>
+        </div>
+
+        <form class="order-panel" data-order-form>
+          <div class="order-menu" aria-label="Gerichte zur Bestellung">
+            <article class="order-item" data-order-item data-name="Gỏi Cuốn Phở" data-price="7 €">
+              <label class="order-choice">
+                <input type="checkbox" data-order-check>
+                <span class="order-item-copy">
+                  <strong>Gỏi Cuốn Phở</strong>
+                  <span>Sommerrollen mit Phở-Nudeln, Kräutern und Hoi-Sin-Soße</span>
+                </span>
+              </label>
+              <div class="order-item-meta">
+                <b>7 €</b>
+                <div class="order-qty" aria-label="Menge Gỏi Cuốn Phở">
+                  <button type="button" data-qty-decrease aria-label="Menge reduzieren">-</button>
+                  <input type="number" min="1" max="20" value="1" inputmode="numeric" data-qty aria-label="Menge">
+                  <button type="button" data-qty-increase aria-label="Menge erhöhen">+</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="order-item" data-order-item data-name="Súp Rau Chay" data-price="5,5 €">
+              <label class="order-choice">
+                <input type="checkbox" data-order-check>
+                <span class="order-item-copy">
+                  <strong>Súp Rau Chay</strong>
+                  <span>Gemüsesuppe mit Tofu</span>
+                </span>
+              </label>
+              <div class="order-item-meta">
+                <b>5,5 €</b>
+                <div class="order-qty" aria-label="Menge Súp Rau Chay">
+                  <button type="button" data-qty-decrease aria-label="Menge reduzieren">-</button>
+                  <input type="number" min="1" max="20" value="1" inputmode="numeric" data-qty aria-label="Menge">
+                  <button type="button" data-qty-increase aria-label="Menge erhöhen">+</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="order-item" data-order-item data-name="Nem Chiên Sài Gòn" data-price="6 €">
+              <label class="order-choice">
+                <input type="checkbox" data-order-check>
+                <span class="order-item-copy">
+                  <strong>Nem Chiên Sài Gòn</strong>
+                  <span>Klassische Frühlingsrollen</span>
+                </span>
+              </label>
+              <div class="order-item-meta">
+                <b>6 €</b>
+                <div class="order-qty" aria-label="Menge Nem Chiên Sài Gòn">
+                  <button type="button" data-qty-decrease aria-label="Menge reduzieren">-</button>
+                  <input type="number" min="1" max="20" value="1" inputmode="numeric" data-qty aria-label="Menge">
+                  <button type="button" data-qty-increase aria-label="Menge erhöhen">+</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="order-item" data-order-item data-name="Hà Phố Teller" data-price="18,9 €">
+              <label class="order-choice">
+                <input type="checkbox" data-order-check>
+                <span class="order-item-copy">
+                  <strong>Hà Phố Teller</strong>
+                  <span>Gemischte Vorspeisenplatte</span>
+                </span>
+              </label>
+              <div class="order-item-meta">
+                <b>18,9 €</b>
+                <div class="order-qty" aria-label="Menge Hà Phố Teller">
+                  <button type="button" data-qty-decrease aria-label="Menge reduzieren">-</button>
+                  <input type="number" min="1" max="20" value="1" inputmode="numeric" data-qty aria-label="Menge">
+                  <button type="button" data-qty-increase aria-label="Menge erhöhen">+</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="order-item" data-order-item data-name="Phở Bò" data-price="13,5 €">
+              <label class="order-choice">
+                <input type="checkbox" data-order-check>
+                <span class="order-item-copy">
+                  <strong>Phở Bò</strong>
+                  <span>Rindfleisch, Reisbandnudeln, Kräuter und Sojasprossen</span>
+                </span>
+              </label>
+              <div class="order-item-meta">
+                <b>13,5 €</b>
+                <div class="order-qty" aria-label="Menge Phở Bò">
+                  <button type="button" data-qty-decrease aria-label="Menge reduzieren">-</button>
+                  <input type="number" min="1" max="20" value="1" inputmode="numeric" data-qty aria-label="Menge">
+                  <button type="button" data-qty-increase aria-label="Menge erhöhen">+</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="order-item" data-order-item data-name="Bò Luc Lac" data-price="16,5 €">
+              <label class="order-choice">
+                <input type="checkbox" data-order-check>
+                <span class="order-item-copy">
+                  <strong>Bò Luc Lac</strong>
+                  <span>Würzig marinierte Rindfleischwürfel mit Jasminreis und Salat</span>
+                </span>
+              </label>
+              <div class="order-item-meta">
+                <b>16,5 €</b>
+                <div class="order-qty" aria-label="Menge Bò Luc Lac">
+                  <button type="button" data-qty-decrease aria-label="Menge reduzieren">-</button>
+                  <input type="number" min="1" max="20" value="1" inputmode="numeric" data-qty aria-label="Menge">
+                  <button type="button" data-qty-increase aria-label="Menge erhöhen">+</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="order-item" data-order-item data-name="Bún Bò Nam Bộ Sả ớt" data-price="14,5 €">
+              <label class="order-choice">
+                <input type="checkbox" data-order-check>
+                <span class="order-item-copy">
+                  <strong>Bún Bò Nam Bộ Sả ớt</strong>
+                  <span>Rindfleisch mit Zitronengras, Chili und Reisnudeln</span>
+                </span>
+              </label>
+              <div class="order-item-meta">
+                <b>14,5 €</b>
+                <div class="order-qty" aria-label="Menge Bún Bò Nam Bộ Sả ớt">
+                  <button type="button" data-qty-decrease aria-label="Menge reduzieren">-</button>
+                  <input type="number" min="1" max="20" value="1" inputmode="numeric" data-qty aria-label="Menge">
+                  <button type="button" data-qty-increase aria-label="Menge erhöhen">+</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="order-item" data-order-item data-name="Shaolin Seitan" data-price="13,9 €">
+              <label class="order-choice">
+                <input type="checkbox" data-order-check>
+                <span class="order-item-copy">
+                  <strong>Shaolin Seitan</strong>
+                  <span>Seitan, Tofu, Tamarinde und Zitronengras</span>
+                </span>
+              </label>
+              <div class="order-item-meta">
+                <b>13,9 €</b>
+                <div class="order-qty" aria-label="Menge Shaolin Seitan">
+                  <button type="button" data-qty-decrease aria-label="Menge reduzieren">-</button>
+                  <input type="number" min="1" max="20" value="1" inputmode="numeric" data-qty aria-label="Menge">
+                  <button type="button" data-qty-increase aria-label="Menge erhöhen">+</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="order-item" data-order-item data-name="Cà Ri đỏ" data-price="ab 12,9 €">
+              <label class="order-choice">
+                <input type="checkbox" data-order-check>
+                <span class="order-item-copy">
+                  <strong>Cà Ri đỏ</strong>
+                  <span>Rotes Curry mit Reis</span>
+                </span>
+              </label>
+              <div class="order-item-meta">
+                <b>ab 12,9 €</b>
+                <div class="order-qty" aria-label="Menge Cà Ri đỏ">
+                  <button type="button" data-qty-decrease aria-label="Menge reduzieren">-</button>
+                  <input type="number" min="1" max="20" value="1" inputmode="numeric" data-qty aria-label="Menge">
+                  <button type="button" data-qty-increase aria-label="Menge erhöhen">+</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="order-item" data-order-item data-name="Sake Nigiri" data-price="5,5 €">
+              <label class="order-choice">
+                <input type="checkbox" data-order-check>
+                <span class="order-item-copy">
+                  <strong>Sake Nigiri</strong>
+                  <span>Lachs, 2 Stück</span>
+                </span>
+              </label>
+              <div class="order-item-meta">
+                <b>5,5 €</b>
+                <div class="order-qty" aria-label="Menge Sake Nigiri">
+                  <button type="button" data-qty-decrease aria-label="Menge reduzieren">-</button>
+                  <input type="number" min="1" max="20" value="1" inputmode="numeric" data-qty aria-label="Menge">
+                  <button type="button" data-qty-increase aria-label="Menge erhöhen">+</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="order-item" data-order-item data-name="Sake Avocado Inside Out" data-price="10,5 €">
+              <label class="order-choice">
+                <input type="checkbox" data-order-check>
+                <span class="order-item-copy">
+                  <strong>Sake Avocado Inside Out</strong>
+                  <span>Lachs, Avocado, Flugfischrogen</span>
+                </span>
+              </label>
+              <div class="order-item-meta">
+                <b>10,5 €</b>
+                <div class="order-qty" aria-label="Menge Sake Avocado Inside Out">
+                  <button type="button" data-qty-decrease aria-label="Menge reduzieren">-</button>
+                  <input type="number" min="1" max="20" value="1" inputmode="numeric" data-qty aria-label="Menge">
+                  <button type="button" data-qty-increase aria-label="Menge erhöhen">+</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="order-item" data-order-item data-name="Ebi Sake Tiger Roll" data-price="15,9 €">
+              <label class="order-choice">
+                <input type="checkbox" data-order-check>
+                <span class="order-item-copy">
+                  <strong>Ebi Sake Tiger Roll</strong>
+                  <span>Ebi Tempura, Mango, Frischkäse, Lachs</span>
+                </span>
+              </label>
+              <div class="order-item-meta">
+                <b>15,9 €</b>
+                <div class="order-qty" aria-label="Menge Ebi Sake Tiger Roll">
+                  <button type="button" data-qty-decrease aria-label="Menge reduzieren">-</button>
+                  <input type="number" min="1" max="20" value="1" inputmode="numeric" data-qty aria-label="Menge">
+                  <button type="button" data-qty-increase aria-label="Menge erhöhen">+</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="order-item" data-order-item data-name="Menü 1" data-price="49,9 €">
+              <label class="order-choice">
+                <input type="checkbox" data-order-check>
+                <span class="order-item-copy">
+                  <strong>Menü 1</strong>
+                  <span>Sushi-Menü für 2 Personen</span>
+                </span>
+              </label>
+              <div class="order-item-meta">
+                <b>49,9 €</b>
+                <div class="order-qty" aria-label="Menge Menü 1">
+                  <button type="button" data-qty-decrease aria-label="Menge reduzieren">-</button>
+                  <input type="number" min="1" max="20" value="1" inputmode="numeric" data-qty aria-label="Menge">
+                  <button type="button" data-qty-increase aria-label="Menge erhöhen">+</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="order-item" data-order-item data-name="Mango Lassi" data-price="5,9 €">
+              <label class="order-choice">
+                <input type="checkbox" data-order-check>
+                <span class="order-item-copy">
+                  <strong>Mango Lassi</strong>
+                  <span>Mango und Kokosmilch</span>
+                </span>
+              </label>
+              <div class="order-item-meta">
+                <b>5,9 €</b>
+                <div class="order-qty" aria-label="Menge Mango Lassi">
+                  <button type="button" data-qty-decrease aria-label="Menge reduzieren">-</button>
+                  <input type="number" min="1" max="20" value="1" inputmode="numeric" data-qty aria-label="Menge">
+                  <button type="button" data-qty-increase aria-label="Menge erhöhen">+</button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <aside class="order-details" aria-label="Bestelldaten">
+            <div class="order-details-grid">
+              <label class="order-field">
+                <span>Name</span>
+                <input type="text" data-customer-name autocomplete="name" placeholder="Ihr Name">
+              </label>
+              <label class="order-field">
+                <span>Bestellart</span>
+                <select data-order-type>
+                  <option value="Zum Mitnehmen">Zum Mitnehmen</option>
+                  <option value="Im Restaurant">Im Restaurant</option>
+                  <option value="Vorbestellen">Vorbestellen</option>
+                </select>
+              </label>
+              <label class="order-field">
+                <span>Telefon</span>
+                <input type="tel" data-customer-phone autocomplete="tel" placeholder="Ihre Telefonnummer">
+              </label>
+              <label class="order-field">
+                <span>Zeit</span>
+                <input type="text" data-order-time placeholder="z.B. Heute 18:30">
+              </label>
+              <label class="order-field order-field-wide">
+                <span>Weitere Gerichte oder Wünsche</span>
+                <textarea data-order-notes placeholder="Menge, Menü-Nummer, Allergien oder besondere Wünsche"></textarea>
+              </label>
+            </div>
+
+            <div class="order-summary" data-order-summary aria-live="polite">
+              <strong>Auswahl</strong>
+              <p>Noch keine Gerichte ausgewählt.</p>
+            </div>
+
+            <button class="button button-primary order-submit" type="submit">
+              Per WhatsApp senden
+            </button>
+            <p class="order-message" data-order-message hidden></p>
+          </aside>
+        </form>
       </div>
     </section>
 
@@ -2247,6 +2823,9 @@
               Alle 18 Seiten der Karte, ruhig präsentiert für Desktop und
               Smartphone.
             </p>
+            <div class="menu-book-actions">
+              <a class="button button-primary" href="#bestellen">Jetzt bestellen</a>
+            </div>
           </div>
 
           <div class="menu-book-panel">
@@ -2467,6 +3046,7 @@
           </div>
           <div class="contact-actions">
             <a class="button button-primary" href="tel:+491776356186">Anrufen</a>
+            <a class="button button-secondary" href="#bestellen">Bestellen</a>
             <a class="button button-secondary" href="https://maps.app.goo.gl/zqNtECPHtZMHn12d9" target="_blank" rel="noreferrer">Route öffnen</a>
             <a class="button button-secondary" href="https://www.instagram.com/hapho_restaurant/" target="_blank" rel="noreferrer">Instagram</a>
           </div>
@@ -2543,6 +3123,168 @@
           mosaic.append(createFigure(`${number}.jpg`, "mosaic-image", index));
         });
       }
+    })();
+
+    (() => {
+      const form = document.querySelector("[data-order-form]");
+
+      if (!form) {
+        return;
+      }
+
+      const whatsappNumber = "491776356186";
+      const summary = form.querySelector("[data-order-summary]");
+      const message = form.querySelector("[data-order-message]");
+      const nameField = form.querySelector("[data-customer-name]");
+      const phoneField = form.querySelector("[data-customer-phone]");
+      const timeField = form.querySelector("[data-order-time]");
+      const typeField = form.querySelector("[data-order-type]");
+      const notesField = form.querySelector("[data-order-notes]");
+      const orderItems = Array.from(form.querySelectorAll("[data-order-item]")).map((item) => ({
+        item,
+        check: item.querySelector("[data-order-check]"),
+        quantity: item.querySelector("[data-qty]"),
+        decrease: item.querySelector("[data-qty-decrease]"),
+        increase: item.querySelector("[data-qty-increase]")
+      }));
+
+      function clampQuantity(value) {
+        const number = Number.parseInt(value, 10);
+
+        if (Number.isNaN(number)) {
+          return 1;
+        }
+
+        return Math.min(20, Math.max(1, number));
+      }
+
+      function selectedItems() {
+        return orderItems
+          .filter(({ check }) => check.checked)
+          .map(({ item, quantity }) => ({
+            name: item.dataset.name,
+            price: item.dataset.price,
+            quantity: clampQuantity(quantity.value)
+          }));
+      }
+
+      function setMessage(text, isError = false) {
+        message.textContent = text;
+        message.hidden = !text;
+        message.classList.toggle("is-error", isError);
+      }
+
+      function renderSummary() {
+        const items = selectedItems();
+        const title = document.createElement("strong");
+
+        title.textContent = "Auswahl";
+        summary.replaceChildren(title);
+
+        orderItems.forEach(({ item, check }) => {
+          item.classList.toggle("is-selected", check.checked);
+        });
+
+        if (!items.length) {
+          const empty = document.createElement("p");
+          empty.textContent = "Noch keine Gerichte ausgewählt.";
+          summary.append(empty);
+          return;
+        }
+
+        const list = document.createElement("ul");
+
+        items.forEach(({ name, price, quantity }) => {
+          const line = document.createElement("li");
+          line.textContent = `${quantity}x ${name} (${price})`;
+          list.append(line);
+        });
+
+        summary.append(list);
+      }
+
+      orderItems.forEach(({ check, quantity, decrease, increase }) => {
+        check.addEventListener("change", () => {
+          setMessage("");
+          renderSummary();
+        });
+
+        decrease.addEventListener("click", () => {
+          quantity.value = clampQuantity(quantity.value) - 1;
+          quantity.value = clampQuantity(quantity.value);
+          check.checked = true;
+          setMessage("");
+          renderSummary();
+        });
+
+        increase.addEventListener("click", () => {
+          quantity.value = clampQuantity(quantity.value) + 1;
+          quantity.value = clampQuantity(quantity.value);
+          check.checked = true;
+          setMessage("");
+          renderSummary();
+        });
+
+        quantity.addEventListener("change", () => {
+          quantity.value = clampQuantity(quantity.value);
+          setMessage("");
+          renderSummary();
+        });
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const items = selectedItems();
+        const notes = notesField.value.trim();
+
+        if (!items.length && !notes) {
+          setMessage("Bitte wählen Sie mindestens ein Gericht oder tragen Sie weitere Wünsche ein.", true);
+          return;
+        }
+
+        const lines = ["Hallo Hà Phố, ich möchte bestellen:"];
+
+        if (items.length) {
+          lines.push("", "Gerichte:");
+          items.forEach(({ name, price, quantity }) => {
+            lines.push(`- ${quantity}x ${name} (${price})`);
+          });
+        }
+
+        if (notes) {
+          lines.push("", `Weitere Gerichte/Wünsche: ${notes}`);
+        }
+
+        lines.push("", `Bestellart: ${typeField.value}`);
+
+        if (timeField.value.trim()) {
+          lines.push(`Zeit: ${timeField.value.trim()}`);
+        }
+
+        if (nameField.value.trim()) {
+          lines.push(`Name: ${nameField.value.trim()}`);
+        }
+
+        if (phoneField.value.trim()) {
+          lines.push(`Telefon: ${phoneField.value.trim()}`);
+        }
+
+        lines.push("", "Vielen Dank!");
+
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(lines.join("\n"))}`;
+        const opened = window.open(whatsappUrl, "_blank");
+
+        setMessage("WhatsApp wird geöffnet.");
+
+        if (opened) {
+          opened.opener = null;
+        } else {
+          window.location.href = whatsappUrl;
+        }
+      });
+
+      renderSummary();
     })();
 
     (() => {
