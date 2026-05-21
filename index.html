@@ -659,9 +659,37 @@
       margin-top: 34px;
     }
 
+    .order-browser {
+      display: grid;
+      gap: 14px;
+    }
+
     .order-menu {
       display: grid;
       gap: 12px;
+    }
+
+    .order-menu [hidden] {
+      display: none !important;
+    }
+
+    .order-category {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 12px 0 2px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .order-category::after {
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.14);
+      content: "";
     }
 
     .order-item {
@@ -862,6 +890,24 @@
       padding-left: 18px;
     }
 
+    .order-summary-total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 12px;
+      color: #fff8eb;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .order-summary-total b {
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
     .order-submit {
       width: 100%;
     }
@@ -874,6 +920,37 @@
 
     .order-message.is-error {
       color: #ffd1c9;
+    }
+
+    .order-pagination {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .order-page-indicator {
+      min-width: 128px;
+      color: rgba(255, 248, 235, 0.76);
+      font-size: 14px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .order-pagination .book-button {
+      border-color: rgba(255, 255, 255, 0.16);
+      color: #fff8eb;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .order-pagination .book-button:hover:not(:disabled) {
+      border-color: rgba(202, 169, 134, 0.55);
+      background: rgba(202, 169, 134, 0.2);
     }
 
     .menu-list {
@@ -2270,8 +2347,10 @@
         </div>
 
         <form class="order-panel" data-order-form>
-          <div class="order-menu" aria-label="Gerichte zur Bestellung">
-            <article class="order-item" data-order-item data-name="Gỏi Cuốn Phở" data-price="7 €">
+          <div class="order-browser">
+            <div class="order-menu" data-order-menu aria-label="Gerichte zur Bestellung">
+              <div class="order-category">Beliebt</div>
+              <article class="order-item" data-order-item data-name="Gỏi Cuốn Phở" data-price="7 €">
               <label class="order-choice">
                 <input type="checkbox" data-order-check>
                 <span class="order-item-copy">
@@ -2415,16 +2494,16 @@
               </div>
             </article>
 
-            <article class="order-item" data-order-item data-name="Cà Ri đỏ" data-price="ab 12,9 €">
+            <article class="order-item" data-order-item data-name="Cà Ri đỏ - gebratenes Hühnchen" data-price="12,9 €">
               <label class="order-choice">
                 <input type="checkbox" data-order-check>
                 <span class="order-item-copy">
-                  <strong>Cà Ri đỏ</strong>
-                  <span>Rotes Curry mit Reis</span>
+                  <strong>Cà Ri đỏ - gebratenes Hühnchen</strong>
+                  <span>Rotes Curry mit Reis, Salat und Gemüse</span>
                 </span>
               </label>
               <div class="order-item-meta">
-                <b>ab 12,9 €</b>
+                <b>12,9 €</b>
                 <div class="order-qty" aria-label="Menge Cà Ri đỏ">
                   <button type="button" data-qty-decrease aria-label="Menge reduzieren">-</button>
                   <input type="number" min="1" max="20" value="1" inputmode="numeric" data-qty aria-label="Menge">
@@ -2505,7 +2584,7 @@
               </div>
             </article>
 
-            <article class="order-item" data-order-item data-name="Mango Lassi" data-price="5,9 €">
+              <article class="order-item" data-order-item data-name="Mango Lassi" data-price="5,9 €">
               <label class="order-choice">
                 <input type="checkbox" data-order-check>
                 <span class="order-item-copy">
@@ -2521,7 +2600,14 @@
                   <button type="button" data-qty-increase aria-label="Menge erhöhen">+</button>
                 </div>
               </div>
-            </article>
+              </article>
+            </div>
+
+            <div class="order-pagination" aria-label="Bestellliste Seiten">
+              <button class="book-button" type="button" data-order-prev>Zurück</button>
+              <span class="order-page-indicator" data-order-page>Seite 1 von 1</span>
+              <button class="book-button" type="button" data-order-next>Weiter</button>
+            </div>
           </div>
 
           <aside class="order-details" aria-label="Bestelldaten">
@@ -3140,6 +3226,160 @@
       const timeField = form.querySelector("[data-order-time]");
       const typeField = form.querySelector("[data-order-type]");
       const notesField = form.querySelector("[data-order-notes]");
+      const orderMenu = form.querySelector("[data-order-menu]");
+      const extraOrderGroups = [
+        {
+          category: "Vorspeisen",
+          items: [
+            { name: "Wan Tan Suppe", description: "Kleine Suppe mit Wan Tans, Gemüse und Garnelen-Hühnerfüllung", price: "5,5 €" },
+            { name: "Súp Nước Dừa - Tofu", description: "Kokos Suppe mit Zitronengras und Tofu", price: "5 €" },
+            { name: "Gỏi Cuốn - Tofu", description: "Sommerrollen mit Reisnudeln, Salat, Kräutern und Erdnusssoße", price: "5,5 €" },
+            { name: "Nem Chay", description: "6 vegetarische Frühlingsrollen mit Süß-Sauer-Soße", price: "5,5 €" },
+            { name: "Chả Rế Tôm", description: "3 Netzfrühlingsrollen mit Garnelen und Morcheln", price: "6 €" },
+            { name: "Há Cảo Hấp", description: "4 gedämpfte Teigtaschen mit Garnelen-Hühnerfüllung", price: "6,5 €" },
+            { name: "Há Cảo Chay", description: "6 vegetarisch gedämpfte Teigtaschen", price: "7 €" },
+            { name: "Wan Tan Chiên", description: "Gebackene Teigtaschen mit Süß-Sauer-Soße", price: "5,5 €" },
+            { name: "Đậu Phụ Chiên", description: "Panierter Tofu mit Gemüse und Sojasoße", price: "6,5 €" },
+            { name: "Gà Nướng Mật Ong", description: "2 Hähnchen-Saté-Spieße mit Honig und Erdnusssoße", price: "6 €" },
+            { name: "Edamame", description: "Japanische Sojabohnen", price: "6 €" },
+            { name: "Gebackene Süßkartoffeln", description: "Sweet potato fries", price: "6 €" },
+            { name: "Ha Pho Teller vegetarisch", description: "Vegetarische Vorspeisenplatte mit Frühlingsrollen, Tofu und Seitan", price: "15,5 €" }
+          ]
+        },
+        {
+          category: "Hauptgerichte",
+          items: [
+            { name: "Nộm Đu Đủ", description: "Grüner Papayasalat mit Erdnüssen, Möhren, Garnelen und Kräutern", price: "8 €" },
+            { name: "Phở Gà", description: "Reisbandnudel Suppe mit Hühnerbrust, Kräutern und Sojasprossen", price: "12,9 €" },
+            { name: "Große Wan Tan Suppe", description: "Wan Tans mit Garnelen-Hühnerfüllung und Gemüse", price: "12,5 €" },
+            { name: "Bún Vịt", description: "Reisnudel Suppe mit knuspriger Ente und Kräutern", price: "15,9 €" },
+            { name: "Phở Xào - Gemüse", description: "Gebratene Phở-Nudeln mit Gemüse, Koriander und Röstzwiebeln", price: "10,9 €" },
+            { name: "Bánh Canh Xào - Tofu", description: "Gebratene Udon Nudeln mit Tofu, Gemüse und Koriander", price: "11,5 €" },
+            { name: "Cơm Rang - Hühnerfleisch", description: "Gebratener Eierreis mit Gemüse und Hühnerfleisch", price: "12,9 €" },
+            { name: "Mango Kokosnuss - Hühnerfleisch", description: "Mango-Kokos-Soße mit Reis, Salat und gebratenem Hühnerfleisch", price: "12,9 €" },
+            { name: "Sốt Lạc - Ente", description: "Erdnusssoße mit Reis, Salat, Gemüse und Ente", price: "15,9 €" },
+            { name: "Teriyaki Soße - Lachs", description: "Teriyaki mit Reis, Salat, Gemüse und Lachs", price: "16,9 €" },
+            { name: "Bún Chả Nướng", description: "Gegrillter Schweinebauch mit Reisnudeln, Salat und Limetten-Soße", price: "13,5 €" },
+            { name: "Bún Bò Cuốn Lá Lốt", description: "Rind- und Schweinefleisch in Betelblättern mit Reisnudeln", price: "13,5 €" },
+            { name: "Bún Nem Sài Gòn", description: "Frühlingsrollen mit Reisnudeln, Salat und Limetten-Soße", price: "13,5 €" },
+            { name: "Bún Chả Nướng & Nem Sài Gòn", description: "Schweinebauch und Frühlingsrollen mit Reisnudeln", price: "17,9 €" },
+            { name: "Seitan Chili", description: "Veganer Seitan & Tofu mit Chili, Gemüse und Zitronengras", price: "13,9 €" },
+            { name: "Bún Bò Chay Sả ớt", description: "Veganes Rind mit Zitronengras, Chili, Reisnudeln und Salat", price: "13,9 €" },
+            { name: "Cà Ri Chay đỏ - Tofu", description: "Vegetarisches rotes Curry mit Tofu, Reis und Salat", price: "11,9 €" },
+            { name: "Mango Kokosnuss - vegane Ente", description: "Vegetarische Mango-Kokos-Soße mit veganer Ente", price: "14,9 €" }
+          ]
+        },
+        {
+          category: "Sushi",
+          items: [
+            { name: "Maguro Nigiri", description: "Thunfisch, 2 Stück", price: "5,9 €" },
+            { name: "Ebi Nigiri", description: "Garnelen, 2 Stück", price: "5,5 €" },
+            { name: "Sake Maki", description: "Lachs Maki, 8 Stück", price: "5,5 €" },
+            { name: "Kappa Maki", description: "Gurke Maki, 8 Stück", price: "4,9 €" },
+            { name: "Tekka Maki", description: "Thunfisch Maki, 8 Stück", price: "5,9 €" },
+            { name: "Veggi Inside Out", description: "Avocado, Gurke, Mango und Sesam, 8 Stück", price: "8,9 €" },
+            { name: "Ebi Avocado Inside Out", description: "Garnele, Avocado und Sesam, 8 Stück", price: "10,9 €" },
+            { name: "Maguro Inside Out", description: "Thunfisch, Avocado und Flugfischrogen, 8 Stück", price: "10,9 €" },
+            { name: "California Inside Out", description: "Surimi, Avocado und Flugfischrogen, 8 Stück", price: "10,5 €" },
+            { name: "Sake Avocado Big Tempura", description: "Lachs, Avocado und Frischkäse, 6 Stück", price: "10,5 €" },
+            { name: "Maguro Big Tempura", description: "Thunfisch, Avocado und Frischkäse, 6 Stück", price: "10,9 €" },
+            { name: "Ebi Tekka Tiger Roll", description: "Ebi Tempura, Avocado, Mango, Frischkäse und Thunfisch", price: "15,9 €" },
+            { name: "Unagi Tiger Roll", description: "Surimi, Avocado, Gurke, Mango, Frischkäse und Unagi", price: "14,9 €" },
+            { name: "Sake Avocado Sashimi", description: "10 Lachs Sashimi und Avocado", price: "21,9 €" },
+            { name: "Menü 2", description: "Sushi-Menü für 4 Personen", price: "95,9 €" }
+          ]
+        },
+        {
+          category: "Desserts & Drinks",
+          items: [
+            { name: "Gebackene Ananas mit Honig", description: "Fried pineapple with honey", price: "5,5 €" },
+            { name: "Gebackene Banane mit Honig", description: "Fried banana with honey", price: "5,5 €" },
+            { name: "Gebackener Apfel mit Honig", description: "Fried apple with honey", price: "5,5 €" },
+            { name: "Reis extra", description: "Extra Portion Reis", price: "2 €" },
+            { name: "Coca-Cola 0,33 l", description: "Glasflasche", price: "3,2 €" },
+            { name: "Wasser still 0,75 l", description: "Glasflasche", price: "6 €" },
+            { name: "Ginger Ale groß 0,4 l", description: "Softdrink", price: "3,9 €" },
+            { name: "Cà Phê Sữa đá", description: "Vietnamesischer Eiskaffee", price: "5,9 €" }
+          ]
+        }
+      ];
+
+      function createOrderItem({ name, description, price }) {
+        const article = document.createElement("article");
+        const label = document.createElement("label");
+        const checkbox = document.createElement("input");
+        const copy = document.createElement("span");
+        const title = document.createElement("strong");
+        const text = document.createElement("span");
+        const meta = document.createElement("div");
+        const priceElement = document.createElement("b");
+        const quantityWrap = document.createElement("div");
+        const decrease = document.createElement("button");
+        const quantity = document.createElement("input");
+        const increase = document.createElement("button");
+
+        article.className = "order-item";
+        article.dataset.orderItem = "";
+        article.dataset.name = name;
+        article.dataset.price = price;
+
+        label.className = "order-choice";
+        checkbox.type = "checkbox";
+        checkbox.dataset.orderCheck = "";
+
+        copy.className = "order-item-copy";
+        title.textContent = name;
+        text.textContent = description;
+        copy.append(title, text);
+        label.append(checkbox, copy);
+
+        meta.className = "order-item-meta";
+        priceElement.textContent = price;
+
+        quantityWrap.className = "order-qty";
+        quantityWrap.setAttribute("aria-label", `Menge ${name}`);
+
+        decrease.type = "button";
+        decrease.dataset.qtyDecrease = "";
+        decrease.setAttribute("aria-label", "Menge reduzieren");
+        decrease.textContent = "-";
+
+        quantity.type = "number";
+        quantity.min = "1";
+        quantity.max = "20";
+        quantity.value = "1";
+        quantity.inputMode = "numeric";
+        quantity.dataset.qty = "";
+        quantity.setAttribute("aria-label", "Menge");
+
+        increase.type = "button";
+        increase.dataset.qtyIncrease = "";
+        increase.setAttribute("aria-label", "Menge erhöhen");
+        increase.textContent = "+";
+
+        quantityWrap.append(decrease, quantity, increase);
+        meta.append(priceElement, quantityWrap);
+        article.append(label, meta);
+
+        return article;
+      }
+
+      function renderExtraOrderItems() {
+        extraOrderGroups.forEach(({ category, items }) => {
+          const heading = document.createElement("div");
+
+          heading.className = "order-category";
+          heading.textContent = category;
+          orderMenu.append(heading);
+
+          items.forEach((item) => {
+            orderMenu.append(createOrderItem(item));
+          });
+        });
+      }
+
+      renderExtraOrderItems();
+
       const orderItems = Array.from(form.querySelectorAll("[data-order-item]")).map((item) => ({
         item,
         check: item.querySelector("[data-order-check]"),
@@ -3147,6 +3387,63 @@
         decrease: item.querySelector("[data-qty-decrease]"),
         increase: item.querySelector("[data-qty-increase]")
       }));
+      const orderPrevButton = form.querySelector("[data-order-prev]");
+      const orderNextButton = form.querySelector("[data-order-next]");
+      const orderPageIndicator = form.querySelector("[data-order-page]");
+      const orderPageSize = 10;
+      let orderPageIndex = 0;
+
+      function orderPageCount() {
+        return Math.max(1, Math.ceil(orderItems.length / orderPageSize));
+      }
+
+      function categoryForItem(item) {
+        let sibling = item.previousElementSibling;
+
+        while (sibling && !sibling.classList.contains("order-category")) {
+          sibling = sibling.previousElementSibling;
+        }
+
+        return sibling;
+      }
+
+      function renderOrderPage(shouldScroll = false) {
+        const pages = orderPageCount();
+        const visibleCategories = new Set();
+
+        if (orderPageIndex >= pages) {
+          orderPageIndex = pages - 1;
+        }
+
+        const start = orderPageIndex * orderPageSize;
+        const end = start + orderPageSize;
+
+        orderItems.forEach(({ item }, index) => {
+          const isVisible = index >= start && index < end;
+
+          item.hidden = !isVisible;
+
+          if (isVisible) {
+            const category = categoryForItem(item);
+
+            if (category) {
+              visibleCategories.add(category);
+            }
+          }
+        });
+
+        orderMenu.querySelectorAll(".order-category").forEach((category) => {
+          category.hidden = !visibleCategories.has(category);
+        });
+
+        orderPrevButton.disabled = orderPageIndex === 0;
+        orderNextButton.disabled = orderPageIndex === pages - 1;
+        orderPageIndicator.textContent = `Seite ${orderPageIndex + 1} von ${pages}`;
+
+        if (shouldScroll) {
+          orderMenu.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
 
       function clampQuantity(value) {
         const number = Number.parseInt(value, 10);
@@ -3158,14 +3455,38 @@
         return Math.min(20, Math.max(1, number));
       }
 
+      function parsePrice(price) {
+        const match = String(price).replace(",", ".").match(/\d+(?:\.\d+)?/);
+
+        return match ? Number.parseFloat(match[0]) : 0;
+      }
+
+      function formatEuro(amount) {
+        const formatted = amount.toFixed(2).replace(".", ",").replace(",00", "");
+
+        return `${formatted} €`;
+      }
+
+      function calculateTotal(items) {
+        return items.reduce((total, item) => total + item.subtotal, 0);
+      }
+
       function selectedItems() {
         return orderItems
           .filter(({ check }) => check.checked)
-          .map(({ item, quantity }) => ({
-            name: item.dataset.name,
-            price: item.dataset.price,
-            quantity: clampQuantity(quantity.value)
-          }));
+          .map(({ item, quantity }) => {
+            const price = item.dataset.price;
+            const unitPrice = parsePrice(price);
+            const count = clampQuantity(quantity.value);
+
+            return {
+              name: item.dataset.name,
+              price,
+              unitPrice,
+              quantity: count,
+              subtotal: unitPrice * count
+            };
+          });
       }
 
       function setMessage(text, isError = false) {
@@ -3194,13 +3515,23 @@
 
         const list = document.createElement("ul");
 
-        items.forEach(({ name, price, quantity }) => {
+        items.forEach(({ name, price, quantity, subtotal }) => {
           const line = document.createElement("li");
-          line.textContent = `${quantity}x ${name} (${price})`;
+          line.textContent = `${quantity}x ${name} (${price}) = ${formatEuro(subtotal)}`;
           list.append(line);
         });
 
         summary.append(list);
+
+        const total = document.createElement("div");
+        const totalLabel = document.createElement("span");
+        const totalPrice = document.createElement("b");
+
+        total.className = "order-summary-total";
+        totalLabel.textContent = "Gesamt";
+        totalPrice.textContent = formatEuro(calculateTotal(items));
+        total.append(totalLabel, totalPrice);
+        summary.append(total);
       }
 
       orderItems.forEach(({ check, quantity, decrease, increase }) => {
@@ -3232,6 +3563,24 @@
         });
       });
 
+      orderPrevButton.addEventListener("click", () => {
+        if (orderPageIndex === 0) {
+          return;
+        }
+
+        orderPageIndex -= 1;
+        renderOrderPage(true);
+      });
+
+      orderNextButton.addEventListener("click", () => {
+        if (orderPageIndex >= orderPageCount() - 1) {
+          return;
+        }
+
+        orderPageIndex += 1;
+        renderOrderPage(true);
+      });
+
       form.addEventListener("submit", (event) => {
         event.preventDefault();
 
@@ -3243,17 +3592,19 @@
           return;
         }
 
-        const lines = ["Hallo Hà Phố, ich möchte bestellen:"];
+        const total = calculateTotal(items);
+        const lines = ["Hallo Hà Phố, ich möchte bestellen:", "", "Hóa đơn / Rechnung:"];
 
         if (items.length) {
-          lines.push("", "Gerichte:");
-          items.forEach(({ name, price, quantity }) => {
-            lines.push(`- ${quantity}x ${name} (${price})`);
+          items.forEach(({ name, price, quantity, subtotal }) => {
+            lines.push(`- ${quantity}x ${name} (${price}) = ${formatEuro(subtotal)}`);
           });
+          lines.push(`Tổng / Gesamt: ${formatEuro(total)}`);
         }
 
         if (notes) {
           lines.push("", `Weitere Gerichte/Wünsche: ${notes}`);
+          lines.push("Hinweis: Diese Extras sind noch nicht im Gesamtpreis enthalten, falls kein Preis ausgewählt wurde.");
         }
 
         lines.push("", `Bestellart: ${typeField.value}`);
@@ -3284,6 +3635,7 @@
         }
       });
 
+      renderOrderPage();
       renderSummary();
     })();
 
